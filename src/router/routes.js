@@ -21,10 +21,17 @@ export default [
     },
     {
         path: '/login',
-        component: Login
+        component: Login,
+        //配置是否隐藏底部
+        meta: {
+            isHideFooter: true
+        }
     },
     {
         path: '/register',
-        component: Register
+        component: Register,
+        meta: {
+            isHideFooter: true
+        }
     }
 ]

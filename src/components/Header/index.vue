@@ -63,6 +63,8 @@ export default {
       const location = {
         name: "search",
       };
+
+      //只有有数据时才携带params参数query参数不影响
       if (this.keyword) {
         (location.params = {
           keyword: this.keyword,
@@ -71,6 +73,11 @@ export default {
             keyword2: this.keyword.toUpperCase(),
           });
       }
+      //解决重复跳转路由有两种方式 一种直接给一个成功的回调
+      //第二种利用catch捕获错误
+      //原理上就是返回一个primise错误对象 只要防止这个错误即可
+      /*  this.$router.push(location, () => {}); */
+      //第三种 直接修改原型上的push方法
       this.$router.push(location);
     },
   },
